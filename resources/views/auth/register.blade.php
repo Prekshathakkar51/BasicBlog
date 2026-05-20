@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout.app>
     <x-slot:title>
         Register
     </x-slot:title>
@@ -13,8 +13,16 @@
                         <form id="registerForm">
                             @csrf
 
+                            <x-form.input name="name" label="Your Name" required/>
 
-                            <label class="floating-label mb-6">
+                            <x-form.input name="email" type="email" label="Email" required/>
+
+                            <x-form.input name="password" type="password" label="Password" required/>
+
+                            <x-form.input name="password_confirmation" type="password" label="Confirm Password" required/>
+
+
+                            {{-- <label class="floating-label mb-6">
                                 <input type="text" name="name" placeholder="Your Name" value="{{ old('name') }}"
                                     class="input input-bordered @error('name') input-error @enderror" required>
                                 <span>Name</span>
@@ -55,7 +63,7 @@
                                 <input type="password" name="password_confirmation" placeholder="**********"
                                     class="input input-bordered" required>
                                 <span>Confirm Password</span>
-                            </label>
+                            </label> --}}
 
 
                             <div class="form-control mt-8">
@@ -77,4 +85,4 @@
 
     <div id="toast-container" class="toast toast-top toast-end z-50">
     </div>
-</x-layout>
+</x-layout.app>

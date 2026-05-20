@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout.app>
     <x-slot:title>
         Home
     </x-slot:title>
@@ -88,4 +88,4 @@
             {{ $blogs->links() }}
         </div>
     </div>
-</x-layout>
+</x-layout.app>

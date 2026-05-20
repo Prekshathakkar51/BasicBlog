@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout.app>
     <x-slot:title>
         {{ $blog->title }}
     </x-slot:title>
@@ -70,4 +70,4 @@
 
 
     </div>
-</x-layout>
+</x-layout.app>

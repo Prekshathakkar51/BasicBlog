@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout.app>
     <x-slot:title>
         Edit Blog
     </x-slot:title>
@@ -89,4 +89,4 @@
             </div>
         </div>
     </div>
-</x-layout>
+</x-layout.app>
