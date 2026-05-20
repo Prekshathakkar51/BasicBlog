@@ -3,19 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
-use Illuminate\Http\Request;
-
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
     use AuthorizesRequests;
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $blogs = Blog::with('user')->latest()->take(10)->get();
+        // $blogs = Blog::with('user')->latest()->take(10)->get();
+        $blogs = Blog::with('user')->latest()->paginate(5);
 
         return view('home', ['blogs' => $blogs]);
     }
@@ -36,9 +38,16 @@ class BlogController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:20480',
         ]);
 
+        if ($request->hasFile('image')) {
+
+            $validated['image'] = $request->file('image')->store('blogs', 'public');
+        }
+
         auth()->user()->blogs()->create($validated);
+        // dd($request->file('image'));
 
         return redirect('/')->with('success', 'Your Blog is posted!');
     }
@@ -46,9 +55,11 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Blog $blog)
     {
-        //
+        return view('blogs.show', [
+            'blog' => $blog,
+        ]);
     }
 
     /**
@@ -74,7 +85,28 @@ class BlogController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:5120',
         ]);
+
+        // dd($request->file('image'));
+
+        // If new image uploaded
+        if ($request->hasFile('image')) {
+
+            // Delete old image if exists
+            if ($blog->image) {
+
+                Storage::disk('public')->delete($blog->image);
+
+            }
+
+            // Store new image
+            $validated['image'] = $request->file('image')
+                ->store('blogs', 'public');
+        } else {
+            // remove image field so old image stays untouched
+            unset($validated['image']);
+        }
 
         $blog->update($validated);
 
@@ -90,7 +122,12 @@ class BlogController extends Controller
 
         $blog->delete();
 
-        return redirect('/')->with('success', 'Blog Deleted');
+        // return redirect('/')->with('success', 'Blog Deleted');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Blog Deleted Successfully',
+        ]);
 
     }
 }

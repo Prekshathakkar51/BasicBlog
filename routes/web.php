@@ -28,6 +28,7 @@ Route::post('/logout', Logout::class)
 
     
 Route::get('/', [BlogController::class, 'index']);
+Route::get('/blogs/{blog}', [BlogController::class, 'show']);
 
 Route::middleware('auth')->group(function () {
 

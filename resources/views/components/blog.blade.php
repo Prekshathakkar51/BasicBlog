@@ -1,9 +1,9 @@
 @props(['blog'])
 
-<div class="card bg-base-100 shadow">
+<div id="blog-{{ $blog->id }}" class="card bg-base-100 shadow-xl">
     <div class="card-body">
-        <div class="flex space-x-3">
-            <div class="min-w-0">
+        <div class="flex flex-col">
+            <div class="w-full">
                 <div class="flex items-center gap-1">
                     <span class="text-sm font-semibold">{{ $blog->user->name }}</span>
                     <span class="text-base-content/60">·</span>
@@ -19,9 +19,26 @@
                     {{ $blog->title }}
                 </p>
 
-                <p class="mt-2">
+                @if($blog->image)
+
+                    <div class="mt-3 w-full overflow-hidden rounded-lg">
+
+                        <img src="{{ asset('storage/' . $blog->image) }}" class="w-full h-64 object-cover block">
+
+                    </div>
+
+                @endif
+
+
+                {{-- <p class="mt-2">
                     {{ $blog->content }}
-                </p>
+                </p> --}}
+
+                <div class="mt-4">
+                    <a href="/blogs/{{ $blog->id }}" class="btn btn-primary btn-sm">
+                        Read Blog
+                    </a>
+                </div>
 
 
                 @can('update', $blog)
@@ -29,11 +46,10 @@
                         <a href="/blogs/{{ $blog->id }}/edit" class="btn btn-ghost btn-xs">
                             Edit
                         </a>
-                        <form method="POST" action="/blogs/{{ $blog->id }}">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" onclick="return confirm('Are you sure you want to delete this blog?')"
-                                class="btn btn-ghost btn-xs text-error">
+                        <form class="delete-blog-form" data-id="{{ $blog->id }}" enctype="multipart/form-data">
+                            {{-- @csrf
+                            @method('DELETE') --}}
+                            <button type="submit" class="btn btn-ghost btn-xs text-error">
                                 Delete
                             </button>
                         </form>

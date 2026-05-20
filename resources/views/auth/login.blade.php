@@ -9,7 +9,8 @@
                 <div class="card-body">
                     <h1 class="text-3xl font-bold text-center mb-6">Welcome Back</h1>
 
-                    <form method="POST" action="/login">
+                    <form id="loginForm">
+                    {{-- <form id="loginForm" method="POST" action="/login"> --}}
                         @csrf
 
                         
@@ -18,31 +19,33 @@
                                    name="email"
                                    placeholder="mail@example.com"
                                    value="{{ old('email') }}"
-                                   class="input input-bordered @error('email') input-error @enderror"
+                                   class="input input-bordered"
+                                   {{-- class="input input-bordered @error('email') input-error @enderror" --}}
                                    required
                                    autofocus>
                             <span>Email</span>
                         </label>
-                        @error('email')
+                        {{-- @error('email')
                             <div class="label -mt-4 mb-2">
                                 <span class="label-text-alt text-error">{{ $message }}</span>
                             </div>
-                        @enderror
+                        @enderror --}}
 
                         
                         <label class="floating-label mb-6">
                             <input type="password"
                                    name="password"
                                    placeholder="********"
-                                   class="input input-bordered @error('password') input-error @enderror"
+                                   class="input input-bordered"
+                                   {{-- class="input input-bordered @error('password') input-error @enderror" --}}
                                    required>
                             <span>Password</span>
                         </label>
-                        @error('password')
+                        {{-- @error('password')
                             <div class="label -mt-4 mb-2">
                                 <span class="label-text-alt text-error">{{ $message }}</span>
                             </div>
-                        @enderror
+                        @enderror  --}}
 
                         
                         <div class="form-control mt-4">
@@ -67,8 +70,13 @@
                         Don't have an account?
                         <a href="/register" class="link link-primary">Register</a>
                     </p>
+
+                    <div id="toast-container" class="toast toast-top toast-end"></div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="toast-container" class="toast toast-top toast-end z-50"></div>
+
 </x-layout>

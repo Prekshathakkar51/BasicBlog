@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ isset($title) ? $title . ' - Blog' : 'Blog' }}</title>
     <link rel="preconnect" href="<https://fonts.bunny.net>">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
@@ -45,6 +46,37 @@
             </div>
         </div>
     @endif
+
+
+    <dialog id="delete_modal" class="modal">
+
+        <div class="modal-box">
+
+            <h3 class="font-bold text-lg">
+                Delete Blog
+            </h3>
+
+            <p class="py-4">
+                Are you sure you want to delete this blog?
+            </p>
+
+            <div class="modal-action">
+
+                <button id="confirm-delete-btn" class="btn btn-error">
+                    Yes, Delete
+                </button>
+
+                <form method="dialog">
+                    <button class="btn">
+                        Cancel
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </dialog>
 
     <main class="flex-1 container mx-auto px-4 py-8">
         {{ $slot }}
