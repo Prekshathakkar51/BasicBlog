@@ -16,36 +16,7 @@
                             <x-form.input name="email" type="email" label="Email" required autofocus/>
 
                             <x-form.input name="password" type="password" label="Password" required/>
-
-
-                            {{-- <label class="floating-label mb-6">
-                                <input type="email" name="email" placeholder="mail@example.com"
-                                    value="{{ old('email') }}" class="input input-bordered" {{--
-                                    class="input input-bordered @error('email') input-error @enderror" --}} 
-                                    {{-- required
-                                    autofocus>
-                                <span>Email</span>
-                            </label> --}}
-                            {{-- @error('email')
-                            <div class="label -mt-4 mb-2">
-                                <span class="label-text-alt text-error">{{ $message }}</span>
-                            </div>
-                            @enderror --}}
-
-
-                            {{-- <label class="floating-label mb-6">
-                                <input type="password" name="password" placeholder="********"
-                                    class="input input-bordered" {{--
-                                    {{-- class="input input-bordered @error('password') input-error @enderror" --}} 
-                                    {{-- required>
-                                <span>Password</span>
-                            </label> --}}  
-                            {{-- @error('password')
-                            <div class="label -mt-4 mb-2">
-                                <span class="label-text-alt text-error">{{ $message }}</span>
-                            </div>
-                            @enderror --}} 
-
+                        
 
                             <div class="form-control mt-4">
                                 <label class="label cursor-pointer justify-start">
@@ -68,12 +39,13 @@
                             <a href="/register" class="link link-primary">Register</a>
                         </p>
 
-                        <div id="toast-container" class="toast toast-top toast-end"></div>
+                        {{-- <div id="toast-container" class="toast toast-top toast-center z-50"></div> --}}
                 </div>
             </div>
         </div>
+        <div id="toast-container" class="toast toast-top toast-center z-50"></div>
     </div>
 
-    <div id="toast-container" class="toast toast-top toast-end z-50"></div>
+    
 
 </x-layout.app>

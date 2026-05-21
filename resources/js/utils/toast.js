@@ -71,6 +71,6 @@ export function showToast(message, type = 'success') {
 
     setTimeout(() => {
         alert.remove();
-    }, 3000);
+    }, 2000);
 }
 

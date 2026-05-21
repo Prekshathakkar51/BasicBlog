@@ -28,12 +28,15 @@ Route::post('/logout', Logout::class)
 
     
 Route::get('/', [BlogController::class, 'index']);
-Route::get('/blogs/{blog}', [BlogController::class, 'show']);
+
 
 Route::middleware('auth')->group(function () {
 
+    Route::get('/blogs/create', [BlogController::class, 'create']);
     Route::post('/blogs', [BlogController::class, 'store']);
     Route::get('/blogs/{blog}/edit', [BlogController::class, 'edit']);
     Route::put('/blogs/{blog}', [BlogController::class, 'update']);
     Route::delete('/blogs/{blog}', [BlogController::class, 'destroy']);
 });
+
+Route::get('/blogs/{blog}', [BlogController::class, 'show']);

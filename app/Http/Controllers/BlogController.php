@@ -17,7 +17,18 @@ class BlogController extends Controller
     public function index()
     {
         // $blogs = Blog::with('user')->latest()->take(10)->get();
-        $blogs = Blog::with('user')->latest()->paginate(5);
+        // eager loading of blog along with user and also eager loading with reactions count
+        $blogs = Blog::with('user')
+            ->withCount([
+                'reactions as likes_count' => function ($query) {
+                    $query->where('type', 'like');
+                },
+
+                'reactions as dislikes_count' => function ($query) {
+                    $query->where('type', 'dislike');
+                },
+            ])
+            ->latest()->paginate(5);
 
         return view('home', ['blogs' => $blogs]);
     }
@@ -27,7 +38,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('blogs.create');
+        
     }
 
     /**
@@ -119,6 +131,11 @@ class BlogController extends Controller
     public function destroy(Blog $blog)
     {
         $this->authorize('delete', $blog);
+
+        // Delete image if exists
+        if ($blog->image) {
+            Storage::disk('public')->delete($blog->image);
+        }
 
         $blog->delete();
 

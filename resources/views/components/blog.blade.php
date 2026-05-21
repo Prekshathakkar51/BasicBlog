@@ -40,6 +40,9 @@
                     </a>
                 </div>
 
+                {{-- Blog Reactions --}}
+                <livewire:blog-reaction :blog="$blog" :key="'blog-reaction-' . $blog->id" />
+
 
                 @can('update', $blog)
                     <div class="flex gap-1 mt-3">

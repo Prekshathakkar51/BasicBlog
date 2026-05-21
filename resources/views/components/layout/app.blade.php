@@ -21,7 +21,7 @@
 
     <x-layout.footer />
 
-    
+@livewireScripts 
 </body>
 
 </html>

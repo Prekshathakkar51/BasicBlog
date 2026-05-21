@@ -8,17 +8,11 @@ export async function handleAuthForm({
 }) {
     const form = document.getElementById(formId);
 
-    if (!form) return;
 
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
         const formData = new FormData(form);
-        const button = form.querySelector('button');
-
-        // UI loading state
-        button.disabled = true;
-        button.innerText = loadingText;
 
         try {
             const response = await fetch(url, {
@@ -34,15 +28,11 @@ export async function handleAuthForm({
 
             const data = await response.json();
 
-            // SUCCESS
             if (response.ok) {
                 showToast(data.message, 'success');
-
-                setTimeout(() => {
-                    window.location.href = data.redirect;
-                }, 1000);
+                window.location.href = data.redirect;
             }
-            // ERROR
+
             else {
                 if (data.errors) {
                     Object.values(data.errors).forEach(messages => {
@@ -59,8 +49,5 @@ export async function handleAuthForm({
             showToast('Something went wrong', 'error');
         }
 
-        // Reset button
-        button.disabled = false;
-        button.innerText = buttonText;
     });
 }

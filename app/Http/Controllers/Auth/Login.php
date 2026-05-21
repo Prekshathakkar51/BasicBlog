@@ -30,11 +30,6 @@ class Login extends Controller
 
         $credentials = $validator->validated();
 
-        // $credentials = $request->validate([
-        //     'email' => 'required|email',
-        //     'password' => 'required',
-        // ]);
-
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
 
             $request->session()->regenerate();
