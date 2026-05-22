@@ -12,13 +12,13 @@
                         <form id="registerForm">
                             @csrf
 
-                            <x-form.input name="name" label="Your Name" required/>
+                            <x-form.input name="name" id="name" label="Your Name" required/>
 
-                            <x-form.input name="email" type="email" label="Email" required/>
+                            <x-form.input name="email" type="email" id="email" label="Email" required/>
 
-                            <x-form.input name="password" type="password" label="Password" required/>
+                            <x-form.input name="password" type="password" id="password" label="Password" required/>
 
-                            <x-form.input name="password_confirmation" type="password" label="Confirm Password" required/>
+                            <x-form.input name="password_confirmation" type="password" id="password_confirmation" label="Confirm Password" required/>
 
                             <div class="form-control mt-8">
                                 <button type="submit" class="btn btn-primary btn-sm w-full">
@@ -36,7 +36,9 @@
             </div>
         </div>
     </div>
-
-    <div id="toast-container" class="toast toast-top toast-center z-50">
-    </div>
+{{-- <div id="toast-container"
+     class="fixed top-5 right-5 z-50">
+</div> --}}
+    {{-- <div id="toast-container" class="toast toast-top toast-center z-50">
+    </div> --}}
 </x-layout.app>

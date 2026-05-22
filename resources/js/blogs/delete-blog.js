@@ -68,31 +68,31 @@ $('#confirm-delete-btn').on('click', function () {
 
 
 
-function showToast(message) {
+// function showToast(message) {
 
-    let toast = `
+//     let toast = `
     
-    <div class="toast toast-top toast-center z-50">
+//     <div class="toast toast-top toast-center z-50">
 
-        <div class="alert alert-success">
+//         <div class="alert alert-success">
 
-            <span>${message}</span>
+//             <span>${message}</span>
 
-        </div>
+//         </div>
 
-    </div>
-    `;
+//     </div>
+//     `;
 
-    $('body').append(toast);
+//     $('body').append(toast);
 
-    setTimeout(function () {
+//     setTimeout(function () {
 
-        $('.toast').fadeOut(500, function () {
-            $(this).remove();
-        });
+//         $('.toast').fadeOut(500, function () {
+//             $(this).remove();
+//         });
 
-    }, 3000);
-}
+//     }, 3000);
+// }
 
 
 

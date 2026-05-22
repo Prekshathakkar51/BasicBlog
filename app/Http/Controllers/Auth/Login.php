@@ -34,13 +34,13 @@ class Login extends Controller
 
             $request->session()->regenerate();
 
-            if ($request->ajax()) {
+            // if ($request->ajax()) {
                 return response()->json([
                     'success' => true,
                     'message' => 'Login successful',
                     'redirect' => url('/'),
                 ]);
-            }
+            // }
 
             // return redirect()->intended('/');
         }

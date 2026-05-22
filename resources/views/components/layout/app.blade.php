@@ -20,6 +20,7 @@
     </main>
 
     <x-layout.footer />
+    <x-layout.toast/>
 
 @livewireScripts 
 </body>

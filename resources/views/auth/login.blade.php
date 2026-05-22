@@ -13,10 +13,10 @@
                         {{-- <form id="loginForm" method="POST" action="/login"> --}}
                             @csrf
 
-                            <x-form.input name="email" type="email" label="Email" required autofocus/>
+                            <x-form.input name="email" id="email" type="email" label="Email" required autofocus />
 
-                            <x-form.input name="password" type="password" label="Password" required/>
-                        
+                            <x-form.input name="password" id="password" type="password" label="Password" required />
+
 
                             <div class="form-control mt-4">
                                 <label class="label cursor-pointer justify-start">
@@ -42,10 +42,12 @@
                         {{-- <div id="toast-container" class="toast toast-top toast-center z-50"></div> --}}
                 </div>
             </div>
+            {{--
         </div>
         <div id="toast-container" class="toast toast-top toast-center z-50"></div>
-    </div>
+    </div> --}}
 
-    
+    {{-- <div id="toast-container" class="fixed top-5 right-5 z-50">
+    </div> --}}
 
 </x-layout.app>

@@ -6,9 +6,9 @@ const imagePreview = document.getElementById('imagePreview');
 // Check if elements exist
 if (imageInput && imagePreview) {
 
-    imageInput.addEventListener('change', function (event) {
+    imageInput.addEventListener('change', function (e) {
 
-        const file = event.target.files[0];
+        const file = e.target.files[0];
 
         // If file selected
         if (file) {

@@ -50,7 +50,7 @@ class BlogController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:20480',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:5120',
         ]);
 
         if ($request->hasFile('image')) {

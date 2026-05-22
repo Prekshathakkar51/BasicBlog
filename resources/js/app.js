@@ -9,13 +9,14 @@ import './blogs/delete-blog';
 
 import './auth/login';
 import './auth/register';
+import './utils/toast';
 
-import './blogs/image-preview'
+// import './blogs/image-preview'
 
-import { showToast } from './utils/toast.js';
+// import { showToast } from './utils/toast.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-    if (window.flashToast) {
-        showToast(window.flashToast.message, window.flashToast.type);
-    }
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//     if (window.flashToast) {
+//         showToast(window.flashToast.message, window.flashToast.type);
+//     }
+// });
