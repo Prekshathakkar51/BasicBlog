@@ -5,18 +5,13 @@ import $ from 'jquery';
 window.$ = $;
 window.jQuery = $;
 
-import './blogs/delete-blog';
+import './delete-blog';
 
 import './auth/login';
 import './auth/register';
-import './utils/toast';
+import './toast';
+import './theme';
 
-// import './blogs/image-preview'
 
-// import { showToast } from './utils/toast.js';
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     if (window.flashToast) {
-//         showToast(window.flashToast.message, window.flashToast.type);
-//     }
-// });
+

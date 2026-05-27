@@ -21,3 +21,30 @@
         }
     }
 }
+
+[data-theme="dark"] .ck-editor__editable {
+    background-color: #1f2937 !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .ck.ck-toolbar {
+    background-color: #111827 !important;
+    border-color: #374151 !important;
+}
+
+[data-theme="dark"] .ck.ck-button {
+    color: #ffffff !important;
+}
+
+
+[data-theme="dark"] nav[role="navigation"] span,
+[data-theme="dark"] nav[role="navigation"] a {
+    background-color: #1f2937 !important;
+    color: #ffffff !important;
+    border-color: #374151 !important;
+}
+
+[data-theme="dark"] nav[role="navigation"] span[aria-current="page"] {
+    background-color: #3b82f6 !important;
+    color: white !important;
+}

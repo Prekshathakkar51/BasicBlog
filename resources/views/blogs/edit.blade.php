@@ -15,7 +15,7 @@
                     <div class="form-control w-full mb-8">
                         <input type="text" name="title" placeholder="Enter Blog's title"
                             class="input input-bordered w-full resize-none @error('title') input-error @enderror"
-                            maxlength="255" required value="{{ old('title', $blog->title) }}">
+                            maxlength="255" value="{{ old('title', $blog->title) }}">
 
                         @error('title')
                             <div class="label">
@@ -59,15 +59,21 @@
                             </div>
                         @enderror
 
-                        
+
                     </div>
 
 
 
                     <div class="form-control w-full">
-                        <textarea name="content" placeholder="Add the content of your blog here"
+                        <textarea name="content" id="content" placeholder="Add the content of your blog here"
                             class="textarea textarea-bordered w-full resize-none @error('content') textarea-error @enderror"
-                            rows="4" required>{{ old('content', $blog->content) }}</textarea>
+                            rows="10" required>{{ old('content', $blog->content) }}</textarea>
+
+                        <div>
+                            <span id="content-count">0</span>/5000
+                        </div>
+
+                        <link rel = "stylesheet" href="{{ asset('css/cke.css') }}"></link>
 
                         @error('content')
                             <div class="label">
@@ -89,4 +95,10 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+
+    <script src="{{ asset('js/ckeEditor-charCount.js') }}"></script>
+
+
 </x-layout.app>

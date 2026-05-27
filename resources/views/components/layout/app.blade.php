@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="lofi">
+<html lang="en" data-theme="lofi" >
 
 <head>
 
-<x-layout.head />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <x-layout.head />
 
 </head>
 
-<body class="min-h-screen flex flex-col bg-base-200 font-sans">
+<body class="min-h-screen flex flex-col bg-base-200 font-sans"> 
 
     <x-layout.navbar />
 
@@ -20,9 +22,14 @@
     </main>
 
     <x-layout.footer />
-    <x-layout.toast/>
+    <x-layout.toast />
 
-@livewireScripts 
+    <script src="{{ asset('js/blog-paginate-main.js') }}"></script>
+
+    <script src="{{ asset('js/live-search.js') }}"></script>
+
+
+    @livewireScripts
 </body>
 
 </html>

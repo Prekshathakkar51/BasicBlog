@@ -30,10 +30,6 @@
                 @endif
 
 
-                {{-- <p class="mt-2">
-                    {{ $blog->content }}
-                </p> --}}
-
                 <div class="mt-4">
                     <a href="/blogs/{{ $blog->id }}" class="btn btn-primary btn-sm">
                         Read Blog

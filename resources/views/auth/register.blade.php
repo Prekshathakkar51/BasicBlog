@@ -36,9 +36,5 @@
             </div>
         </div>
     </div>
-{{-- <div id="toast-container"
-     class="fixed top-5 right-5 z-50">
-</div> --}}
-    {{-- <div id="toast-container" class="toast toast-top toast-center z-50">
-    </div> --}}
+
 </x-layout.app>

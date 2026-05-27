@@ -28,11 +28,13 @@ Route::post('/logout', Logout::class)
 
     
 Route::get('/', [BlogController::class, 'index']);
+Route::get('/search-blogs', [BlogController::class, 'search']);
 
 
 Route::middleware('auth')->group(function () {
 
     Route::get('/blogs/create', [BlogController::class, 'create']);
+    Route::post('/blogs/preview', [BlogController::class, 'preview']);
     Route::post('/blogs', [BlogController::class, 'store']);
     Route::get('/blogs/{blog}/edit', [BlogController::class, 'edit']);
     Route::put('/blogs/{blog}', [BlogController::class, 'update']);

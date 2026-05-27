@@ -41,7 +41,6 @@ class Register extends Controller
 
         Auth::login($user);
 
-        // return redirect('/')->with('success', 'Welcome to Chirper!');
         return response()->json([
             'success' => true,
             'message' => 'Account created successfully',

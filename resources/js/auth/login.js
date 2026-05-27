@@ -1,5 +1,5 @@
 import $ from 'jquery';
-// import { showToast } from '../utils/toast.js';
+
 $(document).ready(function () {
 
     $("#loginForm").submit(function (e) {
@@ -61,20 +61,3 @@ $(document).ready(function () {
     });
 
 });
-
-
-
-
-
-
-
-
-
-// import { handleAuthForm } from '../utils/authHandler.js';
-
-// handleAuthForm({
-//     formId: 'loginForm',
-//     url: '/login',
-//     buttonText: 'Sign In',
-//     loadingText: 'Signing In...'
-// });

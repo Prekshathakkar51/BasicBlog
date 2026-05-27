@@ -10,7 +10,6 @@
                     <h1 class="text-3xl font-bold text-center mb-6">Welcome Back</h1>
 
                     <form id="loginForm">
-                        {{-- <form id="loginForm" method="POST" action="/login"> --}}
                             @csrf
 
                             <x-form.input name="email" id="email" type="email" label="Email" required autofocus />
@@ -37,17 +36,8 @@
                         <p class="text-center text-sm">
                             Don't have an account?
                             <a href="/register" class="link link-primary">Register</a>
-                        </p>
-
-                        {{-- <div id="toast-container" class="toast toast-top toast-center z-50"></div> --}}
+                        </p>         
                 </div>
             </div>
-            {{--
-        </div>
-        <div id="toast-container" class="toast toast-top toast-center z-50"></div>
-    </div> --}}
-
-    {{-- <div id="toast-container" class="fixed top-5 right-5 z-50">
-    </div> --}}
 
 </x-layout.app>

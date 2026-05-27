@@ -38,17 +38,17 @@
                 <div class="divider"></div>
 
                 <div class="mt-6 text-lg leading-9 whitespace-pre-line break-words">
-                    {{ $blog->content }}
+                    {!! $blog->content !!}
                 </div>
 
+                <div class="card-actions justify-end mt-4">
                 @can('update', $blog)
                     <div class="flex gap-1 mt-3">
                         <a href="/blogs/{{ $blog->id }}/edit" class="btn btn-primary">
                             Edit
                         </a>
                         <form class="delete-blog-form" data-id="{{ $blog->id }}" enctype="multipart/form-data">
-                            {{-- @csrf
-                            @method('DELETE') --}}
+                           
                             <button type="submit" 
                                 class="btn btn-error">
                                 Delete
@@ -56,6 +56,7 @@
                         </form>
                     </div>
                 @endcan
+                </div>
 
                 <div class="mt-10">
                     <a href="/" class="btn btn-outline">
